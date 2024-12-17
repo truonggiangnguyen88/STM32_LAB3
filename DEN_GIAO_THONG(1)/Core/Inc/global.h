@@ -32,7 +32,10 @@ extern int status;
 extern int timeRed;
 extern int timeYellow;
 extern int timeGreen;
-
+extern int duration_red;
+extern int duration_yellow;
+extern int duration_green;
+extern int mode;
 extern int led_buffer[4];
 extern int index7SEG;
 extern int timeWay1;

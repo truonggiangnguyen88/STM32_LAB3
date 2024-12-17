@@ -14,11 +14,12 @@ void fsm_automatic(){
 			timeWay1 = timeRed;
 			timeWay2 = timeGreen;
 			status = RED1_GREEN2;
+			mode = 1;
 			setTimer(0, timeGreen*100);
-			setTimer(1, 2);
-			setTimer(2, 3);
-			setTimer(3, 5);
-			setTimer(4, 7);
+			setTimer(1, 7);
+			setTimer(2, 5);
+			setTimer(3, 17);
+			setTimer(4, 17);
 			break;
 
 		case RED1_GREEN2:
@@ -34,15 +35,13 @@ void fsm_automatic(){
 				timeWay1--;
 				timeWay2--;
 			}
-			led_buffer[0] = timeWay1/10;
-			led_buffer[1] = timeWay1%10;
-			led_buffer[2] = timeWay2/10;
-			led_buffer[3] = timeWay2%10;
 
 			if(is_button_pressed(0) == 1){
 				status = SETTING_RED;
+				mode = 2;
 				setTimer(3, 5);
 				selected_duration = timeRed;
+				duration_red = timeRed;
 				clear_all_led();
 			 }
 			scan_7SEG();
@@ -60,15 +59,13 @@ void fsm_automatic(){
 				timeWay1--;
 				timeWay2--;
 			}
-			led_buffer[0] = timeWay1/10;
-			led_buffer[1] = timeWay1%10;
-			led_buffer[2] = timeWay2/10;
-			led_buffer[3] = timeWay2%10;
 
 			if(is_button_pressed(0) == 1){
 				status = SETTING_RED;
+				mode = 2;
 				setTimer(3, 5);
 				selected_duration = timeRed;
+				duration_red = timeRed;
 				clear_all_led();
 			 }
 			scan_7SEG();
@@ -86,15 +83,13 @@ void fsm_automatic(){
 				timeWay1--;
 				timeWay2--;
 			}
-			led_buffer[0] = timeWay1/10;
-			led_buffer[1] = timeWay1%10;
-			led_buffer[2] = timeWay2/10;
-			led_buffer[3] = timeWay2%10;
 
 			if(is_button_pressed(0) == 1){
 				status = SETTING_RED;
+				mode = 2;
 				setTimer(3, 5);
 				selected_duration = timeRed;
+				duration_red = timeRed;
 				clear_all_led();
 			 }
 			scan_7SEG();
@@ -112,14 +107,13 @@ void fsm_automatic(){
 				timeWay1--;
 				timeWay2--;
 			}
-			led_buffer[0] = timeWay1/10;
-			led_buffer[1] = timeWay1%10;
-			led_buffer[2] = timeWay2/10;
-			led_buffer[3] = timeWay2%10;
 
 			if(is_button_pressed(0) == 1){
 				status = SETTING_RED;
+				mode = 2;
+				setTimer(3, 5);
 				selected_duration = timeRed;
+				duration_red = timeRed;
 				clear_all_led();
 			 }
 			scan_7SEG();

@@ -12,6 +12,18 @@
 
 void scan_7SEG(){
 	if(timer_flag1[2] == 1){
+		if(mode == 1){
+			led_buffer[0] = timeWay1/10;
+			led_buffer[1] = timeWay1%10;
+			led_buffer[2] = timeWay2/10;
+			led_buffer[3] = timeWay2%10;
+		}
+		if(mode > 1){
+			led_buffer[0] = selected_duration/10;
+			led_buffer[1] = selected_duration%10;
+			led_buffer[2] = mode/10;
+			led_buffer[3] = mode%10;
+		}
 		setTimer(2, 25);
 		update7SEG(index_led++);
 		if(index_led >= MAX_LED) index_led = 0;

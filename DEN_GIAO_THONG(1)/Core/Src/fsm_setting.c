@@ -14,12 +14,6 @@ void fsm_setting(){
 			setTimer(3, 25);
 			blink_red1_and_red2();
 		}
-
-		led_buffer[0] = selected_duration/10;
-		led_buffer[1] = selected_duration%10;
-		led_buffer[2] = 2/10;
-		led_buffer[3] = 2%10;
-
 		if(is_button_pressed(1) == 1){
 			selected_duration++;
 		}
@@ -30,11 +24,13 @@ void fsm_setting(){
 			}
 		}
 		if(is_button_pressed(2) == 1){
-			timeRed = selected_duration;
+			duration_red = selected_duration;
 		}
 		if(is_button_pressed(0) == 1){
 			status = SETTING_GREEN;
+			mode = 3;
 			selected_duration = timeGreen;
+			duration_green = timeGreen;
 			clear_all_led();
 		}
 		scan_7SEG();
@@ -45,11 +41,6 @@ void fsm_setting(){
 			blink_green1_and_green2();
 		}
 
-		led_buffer[0] = selected_duration/10;
-		led_buffer[1] = selected_duration%10;
-		led_buffer[2] = 3/10;
-		led_buffer[3] = 3%10;
-
 		if(is_button_pressed(1) == 1){
 			selected_duration++;
 		}
@@ -60,11 +51,13 @@ void fsm_setting(){
 			}
 		}
 		if(is_button_pressed(2) == 1){
-			timeGreen = selected_duration;
+			duration_green = selected_duration;
 		}
 		if(is_button_pressed(0) == 1){
 			status = SETTING_YELLOW;
+			mode = 4;
 			selected_duration = timeYellow;
+			duration_yellow = timeYellow;
 			clear_all_led();
 		}
 		scan_7SEG();
@@ -75,11 +68,6 @@ void fsm_setting(){
 			blink_yellow1_and_yellow2();
 		}
 
-		led_buffer[0] = selected_duration/10;
-		led_buffer[1] = selected_duration%10;
-		led_buffer[2] = 4/10;
-		led_buffer[3] = 4%10;
-
 		if(is_button_pressed(1) == 1){
 			selected_duration++;
 		}
@@ -90,12 +78,15 @@ void fsm_setting(){
 			}
 		}
 		if(is_button_pressed(2) == 1){
-			timeYellow = selected_duration;
+			duration_yellow = selected_duration;
 		}
 		if(is_button_pressed(0) == 1){
 			status = INIT;
-			selected_duration = 0;
-			clear_all_led();
+			if(duration_red == duration_green + duration_yellow){
+				timeRed = duration_red;
+				timeGreen = duration_green;
+				timeYellow = duration_yellow;
+			}
 		}
 		scan_7SEG();
 		break;

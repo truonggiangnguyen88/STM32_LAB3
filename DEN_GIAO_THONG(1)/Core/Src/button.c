@@ -59,23 +59,3 @@ void getKeyInput(){
 	}
 }
 
-//	Key0 = Key1;
-//	Key1 = Key2;
-//	Key2 = HAL_GPIO_ReadPin(BUTTON1_GPIO_Port, BUTTON1_Pin);
-//	if((Key0 == Key1) && (Key1 == Key2)){
-//		if(Key3 != Key2){
-//			Key3 = Key2;
-//			if(Key2 == PRESSED_STATE){
-//				subKeyProcess();
-//				TimerForKeyPress = 200;
-//			}
-//		}
-//		else{
-//			TimerForKeyPress--;
-//			if(TimerForKeyPress == 0){
-//				Key3 = NORMAL_STATE;
-//			}
-//		}
-//	}
-//}
-
